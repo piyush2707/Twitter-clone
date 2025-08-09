@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Twitter Clone - Designed by Piyush</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background-color: #e6ecf0;
+        color: #14171a;
+    }
+    header {
+        background-color: royalblue;
+        color: white;
+        padding: 15px;
+        text-align: center;
+        font-size: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    .fly {
+        position: absolute;
+        top: 50%;
+        left: -200px;
+        transform: translateY(-50%);
+        animation: flyIn 5s linear infinite;
+        white-space: nowrap;
+        font-weight: bold;
+    }
+    @keyframes flyIn {
+        0% { left: -200px; }
+        50% { left: 50%; transform: translate(-50%, -50%); }
+        100% { left: 120%; }
+    }
+    main {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: white;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .tweet {
+        border-bottom: 1px solid #e6ecf0;
+        padding: 10px 0;
+    }
+    .tweet:last-child {
+        border-bottom: none;
+    }
+    .author {
+        font-weight: bold;
+        color: royalblue;
+    }
+    .handle {
+        color: gray;
+        font-size: 14px;
+    }
+    .content {
+        margin-top: 5px;
+        font-size: 15px;
+    }
+    footer {
+        text-align: center;
+        padding: 15px;
+        background-color: white;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    footer a {
+        color: royalblue;
+        text-decoration: none;
+        margin: 0 10px;
+        font-weight: bold;
+    }
+    @media (max-width: 600px) {
+        main {
+            margin: 10px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<header>
+    Twitter Clone
+    <div class="fly">✨ Designed by Piyush ✨</div>
+</header>
+
+<main id="feed">
+    <!-- Tweets will be inserted here by JS -->
+</main>
+
+<footer>
+    <p>Connect with me:</p>
+    <a href="https://instagram.com/withpiyushhz" target="_blank">Instagram</a> |
+    <a href="https://www.linkedin.com/in/piyush2707/" target="_blank">LinkedIn</a>
+</footer>
+
+<script>
+    const tweets = [
+        { author: "Piyush Joshi", handle: "@withpiyushhz", content: "Coding at 2am feels like writing love letters to the compiler 💻❤️" },
+        { author: "Piyush Joshi", handle: "@withpiyushhz", content: "Khaane ka mood tha... par fridge me sirf cold water mila 🥶" },
+        { author: "Piyush Joshi", handle: "@withpiyushhz", content: "Github pe project upload karte hi main: 'Arre ab to main full stack dev ban gaya!'" },
+        { author: "Piyush Joshi", handle: "@withpiyushhz", content: "Jo kaam 5 min me ho sakta hai, uske liye main 3 din research karta hoon 😎" },
+        { author: "Piyush Joshi", handle: "@withpiyushhz", content: "Workout cancel, par motivation reel save karke rakhi hai 💪😂" },
+        { author: "Piyush Joshi", handle: "@withpiyushhz", content: "Battery 1%, charger 10km door... bas khatam kahani 🔋" }
+    ];
+
+    const feed = document.getElementById("feed");
+
+    tweets.forEach(t => {
+        const tweetEl = document.createElement("div");
+        tweetEl.classList.add("tweet");
+        tweetEl.innerHTML = `
+            <div><span class="author">${t.author}</span> <span class="handle">${t.handle}</span></div>
+            <div class="content">${t.content}</div>
+        `;
+        feed.appendChild(tweetEl);
+    });
+</script>
+
+</body>
+</html>
